@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+:root {
+  --bg-espresso: #0d0907;
+  --bg-roast: #150f0c;
+  --bg-card: #1c1410;
+  --bg-card-hover: #261b15;
+  --accent-gold: #e5a953;
+  --accent-amber: #d97706;
+  --accent-molten: #ff7b25;
+  --text-primary: #fdfaf6;
+  --text-muted: #bdafa4;
+  --border-subtle: rgba(229, 169, 83, 0.16);
+  --border-glow: rgba(229, 169, 83, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-espresso);
+  color: var(--text-primary);
+  font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-espresso);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.font-body {
+  font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+}
+
+/* Glassmorphism & Surface Styles */
+.glass-nav {
+  background: rgba(13, 9, 7, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.glass-panel {
+  background: rgba(21, 15, 12, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-card {
+  background: rgba(28, 20, 16, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  background: rgba(38, 27, 21, 0.85);
+  border-color: var(--border-glow);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6), 0 0 24px rgba(229, 169, 83, 0.12);
+}
+
+/* Gradients */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fff2dd 0%, #e5a953 50%, #c4832c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.amber-gradient-text {
+  background: linear-gradient(135deg, #ffedd5 0%, #f59e0b 50%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-radial-glow {
+  background: radial-gradient(circle at 50% 30%, rgba(229, 169, 83, 0.15), transparent 70%);
+}
+
+/* Interactive Buttons */
+.btn-primary-melt {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  color: #fffdfa;
+  border: 1px solid rgba(254, 215, 170, 0.3);
+  box-shadow: 0 4px 20px -2px rgba(217, 119, 6, 0.4);
+  transition: all 0.25s ease;
+}
+
+.btn-primary-melt:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px 0 rgba(245, 158, 11, 0.55);
+}
+
+.btn-secondary-melt {
+  background: rgba(38, 27, 21, 0.6);
+  color: #fdfaf6;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s ease;
+}
+
+.btn-secondary-melt:hover {
+  background: rgba(60, 42, 32, 0.85);
+  border-color: var(--border-glow);
+  color: #fde68a;
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0907;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a1f18;
+  border-radius: 9999px;
+  border: 2px solid #0d0907;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a382c;
+}
